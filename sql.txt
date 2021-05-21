@@ -1,0 +1,15 @@
+
+CREATE TABLE CATALOG (
+  Id int IDENTITY,
+  Name varchar(50) NULL,
+  CONSTRAINT PK_CATALOG_Id PRIMARY KEY CLUSTERED (Id)
+)
+
+CREATE TABLE Product (
+  Id int IDENTITY,
+  Name varchar(50) NULL,
+  IdCatalog int NULL,
+  CONSTRAINT PK_Product_Id PRIMARY KEY CLUSTERED (Id)
+)
+
+SELECT CATALOG.Name Catalog, Product.Name Product from prod left  join CATALOG on CATALOG.Id = Product.IdCatalog
